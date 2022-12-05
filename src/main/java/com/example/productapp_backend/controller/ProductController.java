@@ -19,6 +19,10 @@ public class ProductController {
          return "search page";
      }
 
-
+     @PostMapping("/edit")
+    public String Edit()
+     {
+         return "product edit";
+     }
 
 }
