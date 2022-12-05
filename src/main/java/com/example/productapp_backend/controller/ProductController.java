@@ -25,4 +25,10 @@ public class ProductController {
          return "product edit";
      }
 
+     @PostMapping("/delete")
+    public String Delete()
+     {
+         return "delete employee";
+     }
+
 }
