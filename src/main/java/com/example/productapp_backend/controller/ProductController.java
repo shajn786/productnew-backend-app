@@ -1,6 +1,7 @@
 package com.example.productapp_backend.controller;
 
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +29,13 @@ public class ProductController {
      @PostMapping("/delete")
     public String Delete()
      {
-         return "delete employee";
+         return "delete product";
+     }
+
+     @GetMapping("/viewall")
+    public String Viewall()
+     {
+         return "viewall product";
      }
 
 }
