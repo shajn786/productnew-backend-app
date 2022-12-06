@@ -4,10 +4,9 @@ package com.example.productapp_backend.controller;
 import com.example.productapp_backend.dao.ProductDao;
 import com.example.productapp_backend.model.Products;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class ProductController {
@@ -15,6 +14,7 @@ public class ProductController {
     @Autowired
     private ProductDao dao;
 
+    @CrossOrigin(origins = "*")
     @PostMapping(path="/", consumes =  "application/json", produces = "application/json")
      public String Add(@RequestBody Products p)
      {
@@ -41,10 +41,11 @@ public class ProductController {
          return "delete product";
      }
 
+    @CrossOrigin(origins = "*")
      @GetMapping("/viewall")
-    public String Viewall()
+    public List<Products> Viewall()
      {
-         return "viewall product";
+         return (List<Products>)dao.findAll();
      }
 
 }
